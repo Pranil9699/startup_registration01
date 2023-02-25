@@ -7,20 +7,27 @@
 <%@page import="org.hibernate.*"%>
 <%
 
-int ideanumber = (Integer) session.getAttribute("ideanumber");
 int srno = Integer.parseInt(request.getParameter("srno").trim());
+
 try{
-HttpSession sessions = request.getSession();
-List<IdeationTeam> ideationTT=(List<IdeationTeam>)sessions.getAttribute("ideationTT");
-for(IdeationTeam ideationT:ideationTT){
-	if(ideationT.getIdeationTeamId().getTeamId()==srno){
-		ideationTT.remove(ideationT);	
-	}
+
+try{
+	int ideanumber=0;
+	//List<IdeationTeam> ideationTT= new ArrayList<IdeationTeam>();
+Object obj = session.getAttribute("ideationTT");
+if (obj instanceof ArrayList) {
+    ArrayList<IdeationTeam> ideationTT = (ArrayList<IdeationTeam>) obj;
+    Iterator<IdeationTeam> iterator = ideationTT.iterator();
+    while (iterator.hasNext()) {
+        IdeationTeam ideationT = iterator.next();
+        if (ideationT.getIdeationTeamId().getTeamId() == srno) {
+            iterator.remove();
+            ideanumber = ideationT.getIdeationTeamId().getIdeanumber();
+        }
+    }
+    session.setAttribute("ideationTT", ideationTT);
 }
-sessions.setAttribute("ideationTT",ideationTT);
-}catch(Exception ex){
-	ex.printStackTrace();
-}
+
 
 
 Session s = factoryProvider.getfactory().openSession();
@@ -34,4 +41,14 @@ s.close();
 
 RequestDispatcher dispatcher = request.getRequestDispatcher("display.jsp");
 dispatcher.forward(request, response);
+}catch(Exception ex){
+	ex.printStackTrace();
+}
+
+}catch(Exception ex){
+	ex.printStackTrace();
+	RequestDispatcher dispatcher = request.getRequestDispatcher("display.jsp");
+	dispatcher.forward(request, response);
+}
 %>
+
