@@ -135,7 +135,7 @@ String text =   "Dear Sir/Mis,                                                  
 		properties.put("mail.smtp.host", "smtp.gmail.com");
 
 	final String username = "takawanepranil22";
-	final String password = "qqfbqezriujfcnrl";
+	final String password = "qonifztsuzyswhsb";
 
 	Session session = Session.getInstance(properties, new Authenticator() {
 
