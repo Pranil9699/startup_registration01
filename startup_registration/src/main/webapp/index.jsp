@@ -29,7 +29,7 @@
 						<div class="form-group">
 							<label for="Startup_Name">Startup Name:</label> <input required
 								type="text" id="Startup_Name" class="form-control"
-								name="startupname"> <span id="startupnameError"
+								name="startupname" maxlength="255"> <span id="startupnameError"
 								style="color: red"></span>
 						</div>
 						<script>
@@ -93,33 +93,33 @@
 						</script>
 						<div class="form-group">
 							<label for="Student_Name">Student Name:</label> <input
-								type="text" id="student_Name" class="form-control"
+								type="text" id="student_Name" maxlength="255" class="form-control"
 								name="studentname">
 
 
 						</div>
 						<div class="form-group">
 							<label for="College_Name">College Name:</label> <input
-								type="text" id="college_Name" class="form-control"
+								type="text" id="college_Name" maxlength="255" class="form-control"
 								name="collegename">
 						</div>
 						<div class="form-group">
 							<label for="Email">Email:</label> <input type="email" id="Email"
-								name="email" class="form-control" required>
+								name="email" class="form-control" maxlength="255" required>
 						</div>
 						<div class="form-group">
 							<label for="Phone">Phone:</label> <input type="text" id="Phone"
-								class="form-control" name="phone" required>
+								class="form-control" name="phone" maxlength="255" required>
 						</div>
 						<div class="form-group">
 							<label for="teamsize">What is your team size for the
 								project?</label> <input type="text" id="teamsize"
-								style="stroke-opacity: 5px;" class="form-control"
+								style="stroke-opacity: 5px;" maxlength="255" class="form-control"
 								name="teamsize">
 						</div>
 						<div class="form-group">
 							<label for="college_mentor">Who is College Mentor?</label> <input
-								type="text" name="college_mentor" class="form-control"
+								type="text" name="college_mentor" maxlength="255" class="form-control"
 								id="college_mentor" name="college_mentor">
 						</div>
 
@@ -144,32 +144,32 @@
 						<div class="form-group">
 							<label for="painpoint">What is painpoint/problem you wish
 								to solve?</label>
-							<textarea class="form-control" id="painpoint" name="painpoint"></textarea>
+							<textarea class="form-control" id="painpoint" maxlength="255" name="painpoint"></textarea>
 						</div>
 						<div class="form-group">
 							<label for="solution">How to Solve?</label>
-							<textarea class="form-control" id="solution" name="solution"></textarea>
+							<textarea class="form-control" id="solution" maxlength="255" name="solution"></textarea>
 						</div>
 						<div class="form-group">
 							<label for="prototype">Have you built any prototype or
 								proof of concept?</label>
-							<textarea class="form-control" id="prototype"
+							<textarea class="form-control" maxlength="255" id="prototype"
 								name="prototypestatus"></textarea>
 						</div>
 						<div class="form-group">
 							<label for="skills">What skills you wish to acquire?</label>
-							<textarea class="form-control" id="skills"
+							<textarea class="form-control" maxlength="255" id="skills"
 								name="skills_to_acquire"></textarea>
 						</div>
 						<div class="form-group">
 							<label for="hobbies">What are your hobbies?</label>
-							<textarea class="form-control" id="hobbies" name="hobbies"
+							<textarea class="form-control" maxlength="255" id="hobbies" name="hobbies"
 								id="textarea"></textarea>
 						</div>
 						<div class="form-group">
 							<label for="techknow">What technologies do you know?</label>
 							<textarea class="form-control" id="techknow"
-								name="technology_knowhow"></textarea>
+								name="technology_knowhow" maxlength="255"></textarea>
 						</div>
 						<div class="form-group">
 							<label for="file">File Upload: <small>(Pitchdeck
@@ -244,26 +244,30 @@
 					Name.className = "form-control inp ";
 					Name.name = "name[]";
 					Name.placeholder = "Name";
-
+                    Name.style.maxLength = 255;
+                    
 					const Phone = document.createElement("input");
 					Phone.className = "form-control inp";
 					Phone.type = "text";
 					Phone.name = "contact[]";
 					Phone.placeholder = "Phone";
-
+                    Phone.style.maxLength = 255;
+                    
 					const email = document.createElement("input");
 					email.type = "email";
 					email.className = "form-control inp";
 					email.name = "st_email[]";
 					email.placeholder = "Email";
 					email.required = true;
-
+                    email.style.maxLength = 255;
+                    
 					const Role = document.createElement("input");
 					Role.type = "text";
 					Role.className = "form-control inp";
 					Role.name = "role[]";
 					Role.placeholder = "Role";
-
+                    Role.style.maxLength = 255;
+                    
 					const btn = document.createElement("a");
 					btn.style.cssText = "";
 					btn.className = "badge btn btn-danger text-wrap add text-decoration-none m-2 fs-6";

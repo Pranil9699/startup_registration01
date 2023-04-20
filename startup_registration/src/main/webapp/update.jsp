@@ -8,8 +8,7 @@
 <%@page import="org.hibernate.*"%>
 <%@page import="java.util.*"%>
 <%
-int ideanumber = (Integer) session.getAttribute("ideanumber");
-IdeationTable ideationT= (IdeationTable) session.getAttribute("ideationT");
+IdeationTable ideationT =(IdeationTable)session.getAttribute("ideationT");
 %>
 <!DOCTYPE html>
 <html>
@@ -31,13 +30,11 @@ IdeationTable ideationT= (IdeationTable) session.getAttribute("ideationT");
 				
 				<div class="col">
 					<div class="p-3 bg-light">
-
-						<input type="hidden" name="ideanumber" id ="ideanumber" value="<%=ideanumber%>">
-
 						<div class="form-group">
 							<label for="Startup_Name">Startup Name:</label>
 							 <input required type="text" id="Startup_Name"
-								class="form-control" name="startupname" value="<%=ideationT.getStartupname()%>">
+								class="form-control" name="startupname" value="<%=ideationT.getStartupname()%>"
+								 maxlength="255">
 								<span id="startupnameError" style="color:red;"></span>
 								
 						</div>
@@ -64,30 +61,30 @@ IdeationTable ideationT= (IdeationTable) session.getAttribute("ideationT");
 						<div class="form-group">
 							<label for="Student_Name">Student Name:</label> <input
 								type="text" id="student_Name" class="form-control"
-								name="studentname" value="<%=ideationT.getStudentname()%>">
+								name="studentname" value="<%=ideationT.getStudentname()%>" maxlength="255">
 						</div>
 						<div class="form-group">
 							<label for="College_Name">College Name:</label> <input
 								type="text" id="college_Name" class="form-control"
-								name="collegename" value="<%=ideationT.getCollegename()%>">
+								name="collegename" value="<%=ideationT.getCollegename()%>" maxlength="255">
 						</div>
 						<div class="form-group">
 							<label for="Email">Email:</label> <input type="email" id="Email"
-								name="email" class="form-control" value="<%=ideationT.getEmail()%>" required>
+								name="email" class="form-control" value="<%=ideationT.getEmail()%>" required maxlength="255">
 						</div>
 						<div class="form-group">
 							<label for="Phone">Phone:</label> <input type="text" id="Phone"
-								class="form-control" name="phone" value="<%=ideationT.getPhone()%>" required>
+								class="form-control" name="phone" value="<%=ideationT.getPhone()%>" required maxlength="255">
 						</div>
 						<div class="form-group">
 							<label for="teamsize">What is your team size for the
 								project?</label> <input type="text" id="teamsize"
 								style="stroke-opacity: 5px;" class="form-control"
-								name="teamsize" value="<%=ideationT.getTeamsize()%>">
+								name="teamsize" value="<%=ideationT.getTeamsize()%>" maxlength="255">
 						</div>
 						<div class="form-group">
 							<label for="college_mentor">Who is College Mentor?</label> <input type="text" name="college_mentor"
-								 class="form-control" id="college_mentor" value="<%=ideationT.getCollege_mentor()%>"
+								 class="form-control" id="college_mentor" value="<%=ideationT.getCollege_mentor()%>" maxlength="255" 
 								name="college_mentor">
 						</div>
 
@@ -99,33 +96,35 @@ IdeationTable ideationT= (IdeationTable) session.getAttribute("ideationT");
 						<div class="form-group">
 							<label for="painpoint">What is painpoint/problem you wish
 								to solve?</label>
-							<textarea class="form-control" id="painpoint" name="painpoint"><%=ideationT.getPainpoint()%></textarea>
+							<textarea class="form-control" id="painpoint" name="painpoint" maxlength="255"><%=ideationT.getPainpoint()%></textarea>
 						</div>
 						<div class="form-group">
 							<label for="solution">How to Solve?</label>
-							<textarea class="form-control" id="solution" name="solution"><%=ideationT.getSolution()%></textarea>
+							<textarea class="form-control" id="solution" name="solution" maxlength="255"><%=ideationT.getSolution()%></textarea>
 						</div>
 						<div class="form-group">
 							<label for="prototype">Have you built any prototype or
 								proof of concept?</label>
 							<textarea class="form-control" id="prototype"
-								name="prototypestatus"><%=ideationT.getPrototypestatus()%></textarea>
+								name="prototypestatus" maxlength="255"><%=ideationT.getPrototypestatus()%></textarea>
 						</div>
 						<div class="form-group">
 							<label for="skills">What skills you wish to acquire?</label>
-							<textarea class="form-control" id="skills"
+							<textarea class="form-control" id="skills" maxlength="255"
 								name="skills_to_acquire"><%=ideationT.getSkills_to_acquire()%></textarea>
 						</div>
 						<div class="form-group">
 							<label for="hobbies">What are your hobbies?</label>
-							<textarea class="form-control" id="hobbies" name="hobbies"
+							<textarea class="form-control" id="hobbies" name="hobbies" maxlength="255"
 								id="textarea"><%=ideationT.getHobbies()%></textarea>
 						</div>
 						<div class="form-group">
 							<label for="techknow">What technologies do you know?</label>
 							<textarea class="form-control" id="techknow"
-								name="technology_knowhow"><%=ideationT.getTechnology_knowhow()%></textarea>
+								name="technology_knowhow" maxlength="255"><%=ideationT.getTechnology_knowhow()%></textarea>
 						</div>
+						<input type="hidden" name="fileupload_presentation" value="<%=ideationT.getFileupload_presentation()%>" maxlength="255">
+						<input type="hidden" name="team_photo_upload" value="<%=ideationT.getTeam_photo_upload()%>">
 					</div>
 					
 				</div>

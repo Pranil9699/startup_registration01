@@ -7,7 +7,6 @@
 <%@page import="org.hibernate.*"%>
 <%@page import="java.util.*"%>
 <%
-int ideanumber = (Integer) session.getAttribute("ideanumber");
 IdeationTable ideationT= (IdeationTable) session.getAttribute("ideationT");
 %>
 <!DOCTYPE html>

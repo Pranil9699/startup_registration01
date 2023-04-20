@@ -1,7 +1,8 @@
+<%@page import="startup_registration.model.IdeationTable"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%
-int ideanumber = (Integer) session.getAttribute("ideanumber");
+
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +27,7 @@ int ideanumber = (Integer) session.getAttribute("ideanumber");
 			<div class="row gx-5 m-auto col-md-12">
 				<div class="col">
 					<div class="p-3 bg-light">
-					<input type="hidden" name="ideanumber" value="<%=ideanumber%>">
+					<input type="hidden" name="ideanumber" value="<%=((IdeationTable)session.getAttribute("ideationT")).getIdeanumber()%>">
 						<center>
 						<div class="form-group fs-5">
 							<lable>Enter Team Details ?&nbsp;&nbsp;&nbsp; </lable><a
@@ -63,26 +64,30 @@ int ideanumber = (Integer) session.getAttribute("ideanumber");
 					Name.className = "form-control inp ";
 					Name.name = "name[]";
 					Name.placeholder = "Name";
-
+                    Name.style.maxLength = 255;
+                    
 					const Phone = document.createElement("input");
 					Phone.className = "form-control inp";
 					Phone.type = "text";
 					Phone.name = "contact[]";
 					Phone.placeholder = "Phone";
-
+                    Phone.style.maxLength = 255;
+                    
 					const email = document.createElement("input");
 					email.type = "email";
 					email.className = "form-control inp";
 					email.name = "st_email[]";
 					email.placeholder = "Email";
 					email.required = true;
+					email.style.maxLength = 255;
 					
 					const Role = document.createElement("input");
 					Role.type = "text";
 					Role.className = "form-control inp";
 					Role.name = "role[]";
 					Role.placeholder = "Role";
-
+                    Role.style.maxLength = 255;
+                    
 					const btn = document.createElement("a");
 					btn.style.cssText = "width: 30%; margin:5px auto 5px; ";
 					btn.className = "badge btn btn-danger text-wrap add text-decoration-none rounded-8";

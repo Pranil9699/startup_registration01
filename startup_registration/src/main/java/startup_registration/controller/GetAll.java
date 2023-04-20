@@ -78,13 +78,13 @@ public class GetAll extends HttpServlet {
 				String[] urole = request.getParameterValues("role[]");
 				for (int i = 0; i < ust_email.length; i++) {
 					IdeationTeam team = new IdeationTeam();
-					IdeationTeamId id = new IdeationTeamId(ideation.getIdeanumber(), i + 1);
+					IdeationTeamId id = new IdeationTeamId(ideationT.getIdeanumber(), i + 1);
 					team.setIdeationTeamId(id);
 					team.setMemberName(uname[i]);
 					team.setMemberEmail(ust_email[i]);
 					team.setMemberPhone(ucontact[i]);
 					team.setMemberRole(urole[i]);
-					team.setIdeationTable(ideation);
+					team.setIdeationTable(ideationT);
 					GetAll_Ideation_service.getTT(team);
 					ideationTT.add(team);
 				}
@@ -99,10 +99,6 @@ public class GetAll extends HttpServlet {
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
-//			Cookie cookie = new Cookie("startupname", ideationT.getStartupname());
-//		    cookie.setMaxAge(60*60*24); // set cookie to expire in 1 day
-//		    response.addCookie(cookie);
-			session.setAttribute("ideanumber", ideationT.getIdeanumber());
 			session.setAttribute("ideationT", ideationT);
 			session.setAttribute("ideationTT", ideationTT);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("display.jsp");

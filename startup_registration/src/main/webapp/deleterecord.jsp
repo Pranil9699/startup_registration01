@@ -6,7 +6,9 @@
 <%@page import="org.hibernate.Query.*"%>
 <%@page import="org.hibernate.*"%>
 <%
+
 int srno = Integer.parseInt(request.getParameter("srno").trim());
+
 try {
 
 	try {

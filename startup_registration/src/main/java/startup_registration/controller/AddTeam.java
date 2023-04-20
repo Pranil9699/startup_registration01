@@ -17,7 +17,6 @@ import startup_registration.helper.*;
 		maxFileSize = 1024 * 1024 * 50, // 50MB
 		maxRequestSize = 1024 * 1024 * 100 // 100MB
 )
-
 public class AddTeam extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -26,6 +25,7 @@ public class AddTeam extends HttpServlet {
 			throws ServletException, IOException {
 		System.out.println(request.getSession());
 		HttpSession session = request.getSession();
+		@SuppressWarnings("unchecked")
 		List<IdeationTeam> list1 = (List<IdeationTeam>) session.getAttribute("ideationTT");
 		int ideanumber = Integer.parseInt(request.getParameter("ideanumber").trim());
 		IdeationTable ideation = new IdeationTable();

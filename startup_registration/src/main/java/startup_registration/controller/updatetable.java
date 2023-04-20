@@ -15,8 +15,6 @@ public class updatetable extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-//		System.out.println(session + " " + request.getSession());
-		int ideanumber = (Integer) session.getAttribute("ideanumber");
 		IdeationTable ideation = (IdeationTable) session.getAttribute("ideationT");
 		try {
 			String ustartupname = request.getParameter("startupname");
@@ -39,7 +37,7 @@ public class updatetable extends HttpServlet {
 				e.printStackTrace();
 			}
 			IdeationTable ideationT = new IdeationTable();
-			ideationT.setIdeanumber(ideanumber);
+			ideationT.setIdeanumber(ideation.getIdeanumber());
 			ideationT.setDate_time(new Date());
 			ideationT.setStartupname(ustartupname);
 			ideationT.setStudentname(ustudentname);
@@ -54,6 +52,8 @@ public class updatetable extends HttpServlet {
 			ideationT.setHobbies(uhobbies);
 			ideationT.setCollege_mentor(ucollege_mentor);
 			ideationT.setTeamsize(uteamsize);
+			ideationT.setFileupload_presentation(ideation.getFileupload_presentation());
+			ideationT.setTeam_photo_upload(ideation.getTeam_photo_upload());
 			ideationT = (IdeationTable) ServiceIdeationTable.settable(ideationT);
 
 //			String newName = "startupname"; // the new name for the cookie

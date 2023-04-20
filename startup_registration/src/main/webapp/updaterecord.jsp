@@ -11,7 +11,6 @@
 <%@page import="org.hibernate.*"%>
 <%@page import="java.util.*"%>
 <%
-int ideanumber = (Integer) session.getAttribute("ideanumber");
 int srno = Integer.parseInt(request.getParameter("srno"));
 %>
 <!DOCTYPE html>
@@ -48,18 +47,18 @@ int srno = Integer.parseInt(request.getParameter("srno"));
 											%>
 											
 											<div class="">
-									<input type="hidden" name="ideanumber" value="<%=ideationTT.getIdeationTeamId().getIdeanumber()%>">
+									<input type="hidden" name="ideanumber" value="<%=ideationTT.getIdeationTeamId().getIdeanumber()%>" >
 									<input type="hidden" name="srno" value="<%=ideationTT.getIdeationTeamId().getTeamId()%>"> <input
-										type="text" class="form-control inp" name="name"
-										placeholder="Name" value="<%=ideationTT.getMemberName()%>">
+										type="text" class="form-control inp" name="name" 
+										placeholder="Name" value="<%=ideationTT.getMemberName()%>" maxlength="255">
 									<br> <input class="form-control inp" type="text"
-										name="contact" placeholder="Phone"
-										value="<%=ideationTT.getMemberPhone()%>"><br> <input
+										name="contact" placeholder="Phone" maxlength="255"
+										value="<%=ideationTT.getMemberPhone()%>"><br> <input maxlength="255"
 										required type="email" class="form-control inp" name="st_email"
-										placeholder="Email" value="<%=ideationTT.getMemberEmail()%>">
+										placeholder="Email" value="<%=ideationTT.getMemberEmail()%>" >
 									<br> <input type="text" class="form-control inp"
 										name="role" placeholder="Role"
-										value="<%=ideationTT.getMemberRole()%>"> <br>
+										value="<%=ideationTT.getMemberRole()%>" maxlength="255"> <br>
 								</div>
 											
 											
@@ -94,7 +93,7 @@ int srno = Integer.parseInt(request.getParameter("srno"));
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a
 					class="btn btn-outline-secondary rounded-2 h3 text-decoration-none"
-					href='display.jsp?ideanumber=<%=ideanumber%>'>&nbsp;&nbsp;Back&nbsp;&nbsp;</a>
+					href='display.jsp'>&nbsp;&nbsp;Back&nbsp;&nbsp;</a>
 			</center>
 		</form>
 	</div>
